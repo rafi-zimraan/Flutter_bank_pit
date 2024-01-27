@@ -1,18 +1,24 @@
+import 'package:bank_pit_bwa/ui/pages/onboarding_page.dart';
+import 'package:bank_pit_bwa/ui/pages/signIn_page.dart';
+import 'package:bank_pit_bwa/ui/pages/splash_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: Center(child: Image.asset('assets/images/img_bank_bca.png')),
-      ),
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => const SplashPage(),
+        '/onboarding': (context) => const OnboardingPage(),
+        '/sign-in': (context) => const SignInPage(),
+      },
     );
   }
 }
