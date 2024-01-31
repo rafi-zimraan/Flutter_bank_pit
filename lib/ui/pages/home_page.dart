@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
   Widget buildProfile() {
     return Container(
       margin: const EdgeInsets.only(
-        top: 50,
+        top: 35,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -423,7 +423,10 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildFriendtips() {
     return Container(
-      margin: const EdgeInsets.only(top: 30),
+      margin: const EdgeInsets.only(
+        top: 30,
+        bottom: 50,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -437,10 +440,31 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 14,
           ),
-          HomeTipsItem(
-            imageUrl: 'assets/images/img_tips1.png',
-            title: 'Best buy a Car for familly',
-            url: 'https://flutter.com',
+          const Wrap(
+            spacing: 29,
+            runSpacing: 18,
+            children: [
+              HomeTipsItem(
+                imageUrl: 'assets/images/img_tips1.png',
+                title: 'Best buy a Car for familly',
+                url: 'https://flutter.com',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/images/img_tips2.png',
+                title: 'A Familly & children make food',
+                url: 'https://flutter.com',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/images/img_tips3.png',
+                title: 'Are your kidding me, Brother ',
+                url: 'https://flutter.com',
+              ),
+              HomeTipsItem(
+                imageUrl: 'assets/images/img_tips4.png',
+                title: 'The car color is blue, That Bigger',
+                url: 'https://flutter.com',
+              )
+            ],
           )
         ],
       ),
