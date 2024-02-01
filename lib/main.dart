@@ -1,5 +1,6 @@
 import 'package:bank_pit_bwa/ui/pages/home_page.dart';
 import 'package:bank_pit_bwa/ui/pages/onboarding_page.dart';
+import 'package:bank_pit_bwa/ui/pages/profile_page.dart';
 import 'package:bank_pit_bwa/ui/pages/signIn_page.dart';
 import 'package:bank_pit_bwa/ui/pages/sign_up_page.dart';
 import 'package:bank_pit_bwa/ui/pages/sign_up_set_ktp_page%20.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         '/sign-up-set-ktp': (context) => const SignUpUpSetKtpPage(),
         '/sign-up-success': (context) => const SignUpSuccessPage(),
         '/home': (context) => const HomePage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }

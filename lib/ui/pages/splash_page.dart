@@ -17,7 +17,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 5),
       () {
         Navigator.pushNamedAndRemoveUntil(
             context, '/onboarding', (route) => false);
