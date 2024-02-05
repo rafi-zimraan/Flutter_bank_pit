@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:bank_pit_bwa/shared/theme.dart';
 import 'package:bank_pit_bwa/ui/widgets/buttons.dart';
 import 'package:bank_pit_bwa/ui/widgets/profile_menu_item.dart';
@@ -87,12 +89,20 @@ class ProfilePage extends StatelessWidget {
                 ProfileMenuItem(
                   iconUrl: 'assets/icons/ic_edit_profile.png',
                   title: 'Edit Profile',
-                  ontap: () {},
+                  ontap: () async {
+                    if (await Navigator.pushNamed(context, '/pin') == true) {
+                      Navigator.pushNamed(context, '/profile-edit');
+                    }
+                  },
                 ),
                 ProfileMenuItem(
                   iconUrl: 'assets/icons/ic_pin.png',
                   title: 'My Pin',
-                  ontap: () {},
+                  ontap: () async {
+                    if (await Navigator.pushNamed(context, '/pin') == true) {
+                      Navigator.pushNamed(context, '/profile-edit-pin');
+                    }
+                  },
                 ),
                 ProfileMenuItem(
                   iconUrl: 'assets/icons/ic_wallet.png',
@@ -118,7 +128,7 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 87,
+            height: 40,
           ),
           CustomTextButton(
             title: 'Report  a Problem',

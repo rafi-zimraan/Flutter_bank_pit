@@ -89,7 +89,7 @@ class _HomePageState extends State<HomePage> {
           buildProfile(context),
           buildWalletCard(),
           buildLevel(),
-          buildServices(),
+          buildServices(context),
           buildLatestTransactions(),
           buildSendAgain(),
           buildFriendtips(),
@@ -272,7 +272,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildServices() {
+  Widget buildServices(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 30),
       child: Column(
@@ -294,7 +294,9 @@ class _HomePageState extends State<HomePage> {
               HomeServiceItem(
                 iconUrl: 'assets/icons/ic_topup.png',
                 title: 'Top Up',
-                ontap: () {},
+                ontap: () {
+                  Navigator.pushNamed(context, '/topup');
+                },
               ),
               HomeServiceItem(
                 iconUrl: 'assets/icons/ic_send.png',
