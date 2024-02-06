@@ -301,7 +301,9 @@ class _HomePageState extends State<HomePage> {
               HomeServiceItem(
                 iconUrl: 'assets/icons/ic_send.png',
                 title: 'Send',
-                ontap: () {},
+                ontap: () {
+                  Navigator.pushNamed(context, '/tranfer');
+                },
               ),
               HomeServiceItem(
                 iconUrl: 'assets/icons/ic_withdraw.png',

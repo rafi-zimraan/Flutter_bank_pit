@@ -1,4 +1,6 @@
 import 'package:bank_pit_bwa/shared/theme.dart';
+import 'package:bank_pit_bwa/ui/widgets/bank_item.dart';
+import 'package:bank_pit_bwa/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
 class TopupPage extends StatelessWidget {
@@ -63,7 +65,49 @@ class TopupPage extends StatelessWidget {
                 ],
               )
             ],
-          )
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          Text(
+            'Select Bank',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBlod,
+            ),
+          ),
+          const SizedBox(
+            height: 14,
+          ),
+          const BankItem(
+            title: "BANK BCA",
+            imgUrl: 'assets/images/img_bank_bca.png',
+            isSelected: true,
+          ),
+          const BankItem(
+            title: "BANK BNI",
+            imgUrl: 'assets/images/img_bank_bni.png',
+          ),
+          const BankItem(
+            title: "BANK MANDRIR",
+            imgUrl: 'assets/images/img_bank_mandiri.png',
+          ),
+          const BankItem(
+            title: "BANK OCBC",
+            imgUrl: 'assets/images/img_bank_ocbc.png',
+          ),
+          const SizedBox(
+            height: 12,
+          ),
+          CustomFilledButton(
+            title: "Continue",
+            onpressed: () {
+              Navigator.pushNamed(context, '/topup-amount');
+            },
+          ),
+          const SizedBox(
+            height: 57,
+          ),
         ],
       ),
     );
