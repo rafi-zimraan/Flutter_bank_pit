@@ -1,3 +1,5 @@
+import 'package:bank_pit_bwa/ui/pages/data_package_page.dart';
+import 'package:bank_pit_bwa/ui/pages/data_provider_page.dart';
 import 'package:bank_pit_bwa/ui/pages/home_page.dart';
 import 'package:bank_pit_bwa/ui/pages/onboarding_page.dart';
 import 'package:bank_pit_bwa/ui/pages/pin.page.dart';
@@ -14,7 +16,9 @@ import 'package:bank_pit_bwa/ui/pages/splash_page.dart';
 import 'package:bank_pit_bwa/ui/pages/topup_amount_page.dart';
 import 'package:bank_pit_bwa/ui/pages/topup_page.dart';
 import 'package:bank_pit_bwa/ui/pages/topup_success.dart';
+import 'package:bank_pit_bwa/ui/pages/transfer_amount_page.dart';
 import 'package:bank_pit_bwa/ui/pages/transfer_page.dart';
+import 'package:bank_pit_bwa/ui/pages/transfer_success_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -46,6 +50,10 @@ class MyApp extends StatelessWidget {
         '/topup-amount': (context) => const TopupAmountPage(),
         '/topup-success': (context) => const TopupSuccessPage(),
         '/tranfer': (context) => const TransferPage(),
+        '/transfer-amount': (context) => const TransferAmountPage(),
+        '/transfer-success': (context) => const TransferSuccessPage(),
+        '/data-provider': (context) => const DataProviderPage(),
+        '/data-package': (context) => const DataPackagePage(),
       },
     );
   }
