@@ -63,7 +63,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
               carouselController: carouselController,
             ),
-            const SizedBox(height: 80),
+            const SizedBox(height: 45),
             Container(
               margin: const EdgeInsets.symmetric(
                 horizontal: 24,
@@ -110,13 +110,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
                               },
                             ),
                             const SizedBox(
-                              height: 50,
+                              height: 40,
                             ),
                             CustomTextButton(
                               title: 'Sign In',
                               onpressed: () {
                                 Navigator.pushNamedAndRemoveUntil(
-                                    context, '/sign-up', (route) => false);
+                                    context, '/sign-in', (route) => false);
                               },
                             ),
                           ],

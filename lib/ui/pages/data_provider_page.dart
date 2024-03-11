@@ -1,3 +1,4 @@
+import 'package:bank_pit_bwa/shared/shared_methods.dart';
 import 'package:bank_pit_bwa/shared/theme.dart';
 import 'package:bank_pit_bwa/ui/widgets/buttons.dart';
 import 'package:bank_pit_bwa/ui/widgets/data_provider_item.dart';
@@ -57,7 +58,7 @@ class DataProviderPage extends StatelessWidget {
                     height: 4,
                   ),
                   Text(
-                    'Belance: Rp. 170.000.000',
+                    'Belance: ${formatCurrency(170000000)}',
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                     ),

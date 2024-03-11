@@ -78,8 +78,11 @@ class DataPackagePage extends StatelessWidget {
           ),
           CustomFilledButton(
             title: 'Continue',
-            onpressed: () {
-              Navigator.pushNamed(context, '/data-package');
+            onpressed: () async {
+              if (await Navigator.pushNamed(context, '/pin') == true) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/data-success', (route) => false);
+              }
             },
           ),
           const SizedBox(
