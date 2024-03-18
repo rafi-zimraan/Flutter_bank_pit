@@ -43,3 +43,11 @@ Pastikan juga Anda telah menginstal Flutter SDK dan Android Studio (jika menggun
 Jika Anda memiliki pertanyaan lebih lanjut tentang instalasi atau penggunaan aplikasi ini, jangan ragu untuk menghubungi tim pengembang.
 
 Terima kasih telah menggunakan Flutter Wallet App!
+
+
+## Detail Course
+
+Untuk belajar lebih lanjut tentang pengembangan aplikasi e-Wallet menggunakan Flutter dan Laravel, Anda dapat mengikuti kursus berikut:
+
+[Full-Stack Laravel Flutter: Build e-Wallet Mobile Apps](https://buildwithangga.com/kelas/full-stack-laravel-flutter-build-e-wallet-mobile-apps)
+
