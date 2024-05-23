@@ -4,8 +4,8 @@ import 'package:bank_pit_bwa/models/sign_in_form_model.dart';
 import 'package:bank_pit_bwa/models/sign_up_form_model.dart';
 import 'package:bank_pit_bwa/models/user_model.dart';
 import 'package:bank_pit_bwa/shared/shared_value.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:http/http.dart' as http;
 
 class AuthService {
   Future<bool> checkEmail(String email) async {
@@ -74,6 +74,29 @@ class AuthService {
     }
   }
 
+  Future<void> logout() async {
+    try {
+      final token = await getToken();
+
+      final res = await http.post(
+        Uri.parse(
+          '$baseUrl/logout',
+        ),
+        headers: {
+          'Authorization': token,
+        },
+      );
+
+      if (res.statusCode == 200) {
+        await clearStorage();
+      } else {
+        throw jsonDecode(res.body)['message'];
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
   Future<void> storeCredentialToLocal(UserModel user) async {
     try {
       const storage = FlutterSecureStorage();
@@ -112,7 +135,7 @@ class AuthService {
     String? value = await storage.read(key: 'token');
 
     if (value != null) {
-      token = 'Bearer ' + value;
+      token = 'Bearer $value';
     }
 
     return token;
