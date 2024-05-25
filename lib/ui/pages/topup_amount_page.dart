@@ -1,13 +1,19 @@
 // ignore_for_file: depend_on_referenced_packages
 
+import 'package:bank_pit_bwa/models/topup_form_model.dart';
 import 'package:bank_pit_bwa/shared/theme.dart';
 import 'package:bank_pit_bwa/ui/widgets/buttons.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart' as launcher;
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart' as launcher;
 
 class TopupAmountPage extends StatefulWidget {
-  const TopupAmountPage({Key? key}) : super(key: key);
+  final TopupFormModel data;
+
+  const TopupAmountPage({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
 
   @override
   State<TopupAmountPage> createState() => _TopupAmountPagetate();

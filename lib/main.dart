@@ -12,11 +12,8 @@ import 'package:bank_pit_bwa/ui/pages/profile_edit_success_page.dart';
 import 'package:bank_pit_bwa/ui/pages/profile_page.dart';
 import 'package:bank_pit_bwa/ui/pages/signIn_page.dart';
 import 'package:bank_pit_bwa/ui/pages/sign_up_page.dart';
-import 'package:bank_pit_bwa/ui/pages/sign_up_set_ktp_page%20.dart';
-import 'package:bank_pit_bwa/ui/pages/sign_up_set_profile_page.dart';
 import 'package:bank_pit_bwa/ui/pages/sign_up_success_page.dart';
 import 'package:bank_pit_bwa/ui/pages/splash_page.dart';
-import 'package:bank_pit_bwa/ui/pages/topup_amount_page.dart';
 import 'package:bank_pit_bwa/ui/pages/topup_page.dart';
 import 'package:bank_pit_bwa/ui/pages/topup_success.dart';
 import 'package:bank_pit_bwa/ui/pages/transfer_amount_page.dart';
@@ -70,7 +67,6 @@ class MyApp extends StatelessWidget {
           '/profile-edit-pin': (context) => const ProfileEditPinPage(),
           '/profile-edit-success': (context) => const ProfileEditSuccessPage(),
           '/topup': (context) => const TopupPage(),
-          '/topup-amount': (context) => const TopupAmountPage(),
           '/topup-success': (context) => const TopupSuccessPage(),
           '/tranfer': (context) => const TransferPage(),
           '/transfer-amount': (context) => const TransferAmountPage(),
