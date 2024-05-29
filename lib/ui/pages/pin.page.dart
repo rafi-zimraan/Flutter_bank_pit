@@ -78,7 +78,7 @@ class _PinPageState extends State<PinPage> {
                 ),
               ),
               const SizedBox(
-                height: 72,
+                height: 52,
               ),
               SizedBox(
                 width: 200,
@@ -104,11 +104,11 @@ class _PinPageState extends State<PinPage> {
                 ),
               ),
               const SizedBox(
-                height: 66,
+                height: 36,
               ),
               Wrap(
-                spacing: 40,
-                runSpacing: 40,
+                spacing: 30,
+                runSpacing: 30,
                 children: [
                   CustomInputButton(
                     title: '1',
