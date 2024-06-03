@@ -1,6 +1,8 @@
 import 'package:bank_pit_bwa/blocs/user/user_bloc.dart';
+import 'package:bank_pit_bwa/models/tranfer_form_model.dart';
 import 'package:bank_pit_bwa/models/user_model.dart';
 import 'package:bank_pit_bwa/shared/theme.dart';
+import 'package:bank_pit_bwa/ui/pages/transfer_amount_page.dart';
 import 'package:bank_pit_bwa/ui/widgets/buttons.dart';
 import 'package:bank_pit_bwa/ui/widgets/forms.dart';
 import 'package:bank_pit_bwa/ui/widgets/transfer_recent_user_item.dart';
@@ -82,7 +84,16 @@ class _TransferPageState extends State<TransferPage> {
               child: CustomFilledButton(
                 title: 'Continue',
                 onpressed: () {
-                  Navigator.pushNamed(context, '/transfer-amount');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => TransferAmountPage(
+                        data: TranferFormModel(
+                          sendTo: selectedUser!.username,
+                        ),
+                      ),
+                    ),
+                  );
                 },
               ),
             )
@@ -114,7 +125,23 @@ class _TransferPageState extends State<TransferPage> {
               if (state is UserSuccess) {
                 return Column(
                   children: state.users.map((user) {
-                    return TransferRecentUserItem(user: user);
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TransferAmountPage(
+                              data: TranferFormModel(
+                                sendTo: user.username,
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      child: TransferRecentUserItem(
+                        user: user,
+                      ),
+                    );
                   }).toList(),
                 );
               }
@@ -145,7 +172,7 @@ class _TransferPageState extends State<TransferPage> {
             ),
           ),
           const SizedBox(
-            height: 14,
+            height: 20,
           ),
           BlocBuilder<UserBloc, UserState>(
             builder: (context, state) {

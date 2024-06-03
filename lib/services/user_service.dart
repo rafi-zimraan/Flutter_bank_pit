@@ -57,7 +57,7 @@ class UserService {
       final token = await AuthService().getToken();
 
       final res = await http.get(
-        Uri.parse('$baseUrl/user/$username'),
+        Uri.parse('$baseUrl/users/$username'),
         headers: {
           'Authorization': token,
         },

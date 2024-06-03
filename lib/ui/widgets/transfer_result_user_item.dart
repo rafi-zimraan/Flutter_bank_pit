@@ -15,8 +15,8 @@ class TransferResultUserItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 145,
-      height: 175,
+      width: 169,
+      height: 180,
       padding: const EdgeInsets.symmetric(
         horizontal: 17,
         vertical: 22,
@@ -37,7 +37,7 @@ class TransferResultUserItem extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: user.profilePicture != null
+                image: user.profilePicture == null
                     ? const AssetImage(
                         'assets/images/img_profile.png',
                       )
@@ -66,7 +66,7 @@ class TransferResultUserItem extends StatelessWidget {
                 : null,
           ),
           const SizedBox(
-            height: 13,
+            height: 10,
           ),
           Text(
             user.name.toString(),

@@ -32,7 +32,7 @@ class TransferRecentUserItem extends StatelessWidget {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: user.profilePicture != null
+                image: user.profilePicture == null
                     ? const AssetImage(
                         'assets/images/img_profile.png',
                       )
