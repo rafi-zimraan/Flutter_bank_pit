@@ -126,7 +126,7 @@ class _TransferAmountPageState extends State<TransferAmountPage> {
                   ),
                 ),
                 const SizedBox(
-                  height: 67,
+                  height: 24,
                 ),
                 Align(
                   child: SizedBox(

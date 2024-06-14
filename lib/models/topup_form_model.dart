@@ -17,7 +17,7 @@ class TopupFormModel {
       );
 
   Map<String, dynamic> toJson() => {
-        'amount': amount,
+        'amuont': amount,
         'pin': pin,
         'payment_mentod_code': paymentMethodCode,
       };
