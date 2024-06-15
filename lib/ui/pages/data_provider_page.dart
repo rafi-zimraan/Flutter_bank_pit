@@ -1,8 +1,10 @@
+import 'package:bank_pit_bwa/blocs/auth/auth_bloc.dart';
 import 'package:bank_pit_bwa/shared/shared_methods.dart';
 import 'package:bank_pit_bwa/shared/theme.dart';
 import 'package:bank_pit_bwa/ui/widgets/buttons.dart';
 import 'package:bank_pit_bwa/ui/widgets/data_provider_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DataProviderPage extends StatelessWidget {
   const DataProviderPage({Key? key}) : super(key: key);
@@ -44,26 +46,34 @@ class DataProviderPage extends StatelessWidget {
               const SizedBox(
                 width: 16,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '2200 3377 8899',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: medium,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    'Belance: ${formatCurrency(170000000)}',
-                    style: greyTextStyle.copyWith(
-                      fontSize: 12,
-                    ),
-                  )
-                ],
+              BlocBuilder<AuthBloc, AuthState>(
+                builder: (context, state) {
+                  if (state is AuthSuccess) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          state.user.cardNumber!.replaceAllMapped(
+                              RegExp(r".{4}"), (match) => "${match.group(0)} "),
+                          style: blackTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: medium,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          'Belance: ${formatCurrency(state.user.balance ?? 0)}',
+                          style: greyTextStyle.copyWith(
+                            fontSize: 12,
+                          ),
+                        )
+                      ],
+                    );
+                  }
+                  return Container();
+                },
               ),
             ],
           ),
