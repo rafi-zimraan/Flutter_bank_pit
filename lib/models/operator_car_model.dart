@@ -1,7 +1,7 @@
 import 'package:bank_pit_bwa/models/data_plan_model.dart';
 
 class OperatorCardModel {
-  final String? id;
+  final int? id;
   final String? name;
   final String? status;
   final String? thumbnail;

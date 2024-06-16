@@ -1,13 +1,23 @@
 import 'package:bank_pit_bwa/blocs/auth/auth_bloc.dart';
+import 'package:bank_pit_bwa/blocs/operator_card/operator_card_bloc.dart';
+import 'package:bank_pit_bwa/models/operator_car_model.dart';
 import 'package:bank_pit_bwa/shared/shared_methods.dart';
 import 'package:bank_pit_bwa/shared/theme.dart';
+import 'package:bank_pit_bwa/ui/pages/data_package_page.dart';
 import 'package:bank_pit_bwa/ui/widgets/buttons.dart';
 import 'package:bank_pit_bwa/ui/widgets/data_provider_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DataProviderPage extends StatelessWidget {
+class DataProviderPage extends StatefulWidget {
   const DataProviderPage({Key? key}) : super(key: key);
+
+  @override
+  State<DataProviderPage> createState() => _DataProviderPageState();
+}
+
+class _DataProviderPageState extends State<DataProviderPage> {
+  OperatorCardModel? selectedOperatorCard;
 
   @override
   Widget build(BuildContext context) {
@@ -90,33 +100,57 @@ class DataProviderPage extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          const DataProviderItem(
-            name: 'Telkomsel',
-            imgUrl: 'assets/images/img_provider_telkomsel.png',
-            isSelected: true,
-          ),
-          const DataProviderItem(
-            name: 'Indosat Ooredoo',
-            imgUrl: 'assets/images/img_provider_indosat.png',
-          ),
-          const DataProviderItem(
-            name: 'Singtel ID',
-            imgUrl: 'assets/images/img_provider_singtel.png',
-          ),
-          const SizedBox(
-            height: 135,
-          ),
-          CustomFilledButton(
-            title: 'Continue',
-            onpressed: () {
-              Navigator.pushNamed(context, '/data-package');
-            },
+          BlocProvider(
+            create: (context) => OperatorCardBloc()..add(OperatorCardGet()),
+            child: BlocBuilder<OperatorCardBloc, OperatorCardState>(
+              builder: (context, state) {
+                if (state is OperatorCardSuccess) {
+                  return Column(
+                    children: state.operatorCards.map((operatorCard) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            selectedOperatorCard = operatorCard;
+                          });
+                        },
+                        child: DataProviderItem(
+                          operatorCard: operatorCard,
+                          isSelected:
+                              operatorCard.id == selectedOperatorCard?.id,
+                        ),
+                      );
+                    }).toList(),
+                  );
+                }
+
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
           ),
           const SizedBox(
             height: 57,
           ),
         ],
       ),
+      floatingActionButton: (selectedOperatorCard != null)
+          ? Container(
+              margin: const EdgeInsets.all(24),
+              child: CustomFilledButton(
+                title: "Continue",
+                onpressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DataPackagePage(),
+                    ),
+                  );
+                },
+              ),
+            )
+          : Container(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

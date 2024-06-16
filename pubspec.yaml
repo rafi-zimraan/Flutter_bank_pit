@@ -14,10 +14,9 @@ dependencies:
   intl: ^0.19.0
   url_launcher: ^6.2.4
   bloc: ^8.1.2
-  image_picker: ^1.0.7 
+  image_picker: ^1.0.7
   flutter_secure_storage: ^9.0.0
-
-
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -27,8 +26,6 @@ dev_dependencies:
   carousel_slider: ^4.2.1
   another_flushbar: ^1.12.30
   equatable: ^2.0.5
-  
-
 
 flutter:
   assets:

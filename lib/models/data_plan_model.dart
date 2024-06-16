@@ -10,6 +10,6 @@ class DataPlanModel {
         id: json['id'],
         name: json['name'],
         price: json['price'],
-        operatorCardId: json['operatorCardId'],
+        operatorCardId: json['operator_card_id'],
       );
 }
