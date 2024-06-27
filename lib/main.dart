@@ -1,7 +1,6 @@
 import 'package:bank_pit_bwa/blocs/auth/auth_bloc.dart';
 import 'package:bank_pit_bwa/blocs/user/user_bloc.dart';
 import 'package:bank_pit_bwa/shared/theme.dart';
-import 'package:bank_pit_bwa/ui/pages/data_package_page.dart';
 import 'package:bank_pit_bwa/ui/pages/data_provider_page.dart';
 import 'package:bank_pit_bwa/ui/pages/data_success_page.dart';
 import 'package:bank_pit_bwa/ui/pages/home_page.dart';
@@ -74,7 +73,6 @@ class MyApp extends StatelessWidget {
           '/tranfer': (context) => const TransferPage(),
           '/transfer-success': (context) => const TransferSuccessPage(),
           '/data-provider': (context) => const DataProviderPage(),
-          '/data-package': (context) => const DataPackagePage(),
           '/data-success': (context) => const DataSuccessPage(),
         },
       ),

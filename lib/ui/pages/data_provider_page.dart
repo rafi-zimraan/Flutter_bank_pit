@@ -143,7 +143,9 @@ class _DataProviderPageState extends State<DataProviderPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DataPackagePage(),
+                      builder: (context) => DataPackagePage(
+                        operatorCard: selectedOperatorCard!,
+                      ),
                     ),
                   );
                 },
